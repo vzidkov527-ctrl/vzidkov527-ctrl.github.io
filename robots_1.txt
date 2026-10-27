@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vzidkov527-ctrl.github.io/sitemap.xml
