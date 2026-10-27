@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vzidkov527-ctrl.github.io/repo-name/sitemap.xml
+Sitemap: https://vzidkov527-ctrl.github.io/sitemap.xml
