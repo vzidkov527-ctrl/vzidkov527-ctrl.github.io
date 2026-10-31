@@ -720,6 +720,106 @@ nav.sections a:hover{color:var(--fg);background:var(--panel2)}
 @media (max-width:900px){.tn-ev-img.ev-pic{width:96px;height:64px;aspect-ratio:auto}}
 @media (prefers-reduced-motion:reduce){.ev-thumb .ev-pic{transition:none}}
 
+/* 2.1: observing conditions (clouds, ISS passes, aurora), sky-card additions, offline note */
+.sky-wx,.sky-alert{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--fg);text-decoration:none;font-size:14px;line-height:1.4}
+.sky-wx:hover,.sky-alert:hover{border-color:var(--cool)}
+.sky-wx b{font-weight:600}
+.sky-wx .q{flex:none;width:10px;height:10px;border-radius:50%;margin-top:5px;background:var(--muted)}
+.q.good{background:var(--good)}.q.mid{background:var(--warn)}.q.bad{background:var(--bad)}
+.sky-alert{border-color:var(--danger-line);background:var(--danger-bg);color:var(--danger-fg)}
+.sky-foot{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.net-note{margin:-6px 0 16px;padding:10px 14px;border-radius:12px;border:1px dashed var(--line);color:var(--muted);font-size:14px}
+.cond-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.cond-wx{grid-column:1 / -1}
+.cond-grid h3{font-size:24px;margin-bottom:0}
+.cond-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.cond-src{font-size:13px}
+.cond-sum{font-size:16px;margin-bottom:14px}
+.cond-sum b{font-weight:600}
+.wx-strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(40px,1fr);gap:3px;overflow-x:auto;padding-bottom:6px}
+.wx-h{display:grid;grid-template-rows:auto 56px auto auto;gap:4px;text-align:center;font:500 12px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--muted)}
+.wx-c{position:relative;border-radius:8px;overflow:hidden;background:#0b1430;border:1px solid var(--line)}
+.wx-c i{position:absolute;inset:0;background:#b9c1d6}
+.wx-c em{position:absolute;left:0;right:0;bottom:0;font-style:normal;font-size:11px;color:#fff;text-shadow:0 1px 2px #000;padding-bottom:3px}
+.wx-c.ok{box-shadow:inset 0 0 0 2px var(--good)}
+.wx-d{height:6px;border-radius:3px;box-shadow:inset 0 0 0 1px var(--line)}
+.wx-m{height:14px;line-height:14px;font-size:12px;color:var(--fg)}
+.wx-legend{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
+.wx-legend span{display:inline-flex;gap:6px;align-items:center}
+.wx-legend i{width:14px;height:8px;border-radius:3px;display:inline-block}
+.iss-list li .mono{white-space:normal;text-align:right}
+.iss-path{font-size:14px;color:var(--muted)}
+.kp-bars{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;align-items:end;height:84px;margin:6px 0 4px}
+.kp-bars div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center;font:500 11px var(--f-mono);color:var(--muted)}
+.kp-bars b{display:block;border-radius:4px 4px 0 0;background:var(--good);min-height:3px}
+.kp-bars b.k5{background:var(--warn)}.kp-bars b.k7{background:var(--bad)}
+.kp-ax{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;text-align:center;font:500 11px var(--f-mono);color:var(--muted)}
+@media (max-width:900px){ .cond-grid{grid-template-columns:minmax(0,1fr)} }
+/* daily object and question, moon calendar, planet test */
+.dl-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:start}
+.od-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;margin-top:12px;align-items:start}
+.od-row img{width:150px;height:150px;object-fit:cover;border-radius:12px;display:block;background:#03050c}
+.od-row.noimg{grid-template-columns:minmax(0,1fr)}
+.od-type{font-size:14px;color:var(--muted)}
+.od-sky{font-size:14px;color:var(--cool);margin-top:8px}
+.od-name{font-family:var(--f-display);font-size:30px;line-height:1.1;font-weight:600}
+.qd-q{font-size:18px;margin:10px 0 14px}
+.qd-streak{font:500 13px var(--f-mono);color:var(--accent);float:right}
+.mc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.mc-head b{font-family:var(--f-display);font-size:26px;font-weight:600}
+.mc-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.mc-dow{text-align:center;font:500 12px var(--f-mono);color:var(--muted);padding-bottom:4px}
+.mc-day{display:grid;justify-items:center;gap:3px;padding:7px 2px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);min-width:0}
+.mc-day b{font:500 13px var(--f-mono);line-height:1}
+.mc-day svg{width:min(30px,100%);height:auto;display:block}
+.mc-day small{font-size:11px;line-height:1.1;color:var(--muted);text-align:center;min-height:12px;overflow-wrap:anywhere}
+.mc-day.dark{border-color:var(--cool)}
+.mc-day.today{outline:2px solid var(--accent);outline-offset:1px}
+.mc-empty{min-width:0}
+.mc-sum{margin-top:14px;font-size:15px}
+.pt-q{font-size:19px;margin:12px 0 14px}
+.pt-res{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;align-items:center}
+.pt-res img{width:170px;height:170px;object-fit:cover;border-radius:50%;display:block}
+.pt-res h3{margin-bottom:8px}
+.pt-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+@media (max-width:900px){ .dl-grid{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:560px){ .od-row,.pt-res{grid-template-columns:minmax(0,1fr)} .od-row img{width:100%;height:190px} .pt-res img{margin:auto} .mc-day small{display:none} .mc-grid{gap:4px} }
+/* observing diary */
+.dy-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:28px;align-items:start}
+.dy-side{display:grid;gap:20px;min-width:0}
+.dy-num{font:500 44px/1 var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.dy-num small{font-size:18px;color:var(--muted)}
+.dy-bar{height:10px;border-radius:999px;background:var(--panel2);overflow:hidden;margin:12px 0 4px}
+.dy-bar i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .3s}
+.dy-ach{display:grid;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.dy-ach li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:start;color:var(--muted);font-size:14px}
+.dy-ach b{display:block;color:var(--fg);font-weight:600}
+.dy-ach li>span:first-child{font-size:17px;line-height:1.3;color:var(--muted)}
+.dy-ach li.on>span:first-child{color:var(--accent)}
+.dy-ach li:not(.on) b{color:var(--muted)}
+.dy-group{margin:0 0 20px;padding:0;border:0;min-width:0}
+.dy-group:last-child{margin-bottom:0}
+.dy-group legend{padding:0;font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom:8px}
+.dy-group legend span{font:500 13px var(--f-mono);color:var(--muted);margin-left:8px}
+.dy-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.dy-item:last-child{border-bottom:0}
+.dy-item label{display:flex;gap:10px;align-items:center;cursor:pointer;min-width:0;flex:1}
+.dy-item input{width:18px;height:18px;flex:none;margin:0;accent-color:var(--accent)}
+.dy-item small{display:block;color:var(--muted);font-size:13px}
+.dy-form textarea{font:400 15px/1.45 var(--f-body);color:var(--fg);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%;min-height:76px;resize:vertical}
+.dy-form .f-wide{grid-column:1 / -1}
+.dy-form .field-row{margin:12px 0}
+.dy-notes{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px}
+.dy-notes li{padding-top:12px;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.dy-notes .h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.dy-notes small{color:var(--muted);font-size:13px}
+.dy-notes p{margin:6px 0 0;font-size:15px;white-space:pre-wrap}
+.dy-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+@media (max-width:900px){ .dy-grid{grid-template-columns:minmax(0,1fr)} }
+.ny-count{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:22px;padding:9px 15px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));background:rgba(16,21,43,.62);color:var(--fg);font-size:15px}
+.ny-count[hidden]{display:none}
+.ny-count b{font:500 16px/1.2 var(--f-mono);font-variant-numeric:tabular-nums;color:var(--accent)}
+
 .pl-row select.pl-country{flex:0 0 auto;width:auto}
 /* header: the name wraps to two lines so the section links never overlap it */
 .brand{flex:none;white-space:normal}
@@ -789,6 +889,10 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
         <a href="#events"><b>Календарь событий</b><small>Затмения, звездопады, планеты</small></a>
         <a href="#observe"><b>Инструменты наблюдателя</b><small>Звёздное время, фазы Луны</small></a>
         <a href="#photos"><b>Астрофото</b><small>Снимки участников</small></a>
+        <a href="#daily"><b>Сегодня на сайте</b><small>Объект дня и вопрос дня</small></a>
+        <a href="#mooncal"><b>Лунный календарь</b><small>Фазы Луны и тёмные ночи</small></a>
+        <a href="#planet-test"><b>Какая ты планета?</b><small>Весёлый тест</small></a>
+        <a href="#diary"><b>Дневник наблюдений</b><small>Отметки, достижения и записи</small></a>
         <a href="#kids"><b>Детям</b><small>Вес и возраст на других планетах</small></a>
         <a href="#quiz"><b>Викторина</b><small>12 вопросов с разбором</small></a>
         <a href="#calc"><b>Калькуляторы</b><small>Кеплер, скорости, Вин, расстояния</small></a>
@@ -851,6 +955,7 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
         <a class="btn primary big" href="#tonight">Что видно сегодня вечером <span aria-hidden="true">→</span></a>
         <a class="btn big ghost" href="#start">С чего начать</a>
       </div>
+      <p class="ny-count" id="nyCount" hidden></p>
     </div>
     <aside class="sky" aria-labelledby="skyTitle">
       <div class="sky-head">
@@ -862,7 +967,12 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
         <div><div class="phase-name" id="phaseName">Луна</div><div class="phase-sub" id="phaseSub"></div></div>
       </div>
       <dl class="kv" id="skyKv"><div class="full"><dt>Считаю небо для вашего места…</dt><dd></dd></div></dl>
-      <a href="#tonight" class="more">Подробно на эту ночь <span aria-hidden="true">→</span></a>
+      <a class="sky-wx" id="skyWx" href="#wx" hidden></a>
+      <a class="sky-alert" id="skyAlert" href="#aurora" hidden></a>
+      <div class="sky-foot">
+        <a href="#tonight" class="more">Подробно на эту ночь <span aria-hidden="true">→</span></a>
+        <button type="button" class="linkbtn" id="skyShare">Поделиться</button>
+      </div>
     </aside>
   </div>
 </section>
@@ -920,12 +1030,42 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
       <button type="button" class="btn" data-open-loc><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 21s-6.5-6.2-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.8-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.3" fill="currentColor"/></svg>Место: <b class="js-locname"></b><span class="muted"> · изменить</span></button>
       <span class="muted" id="tnDate"></span>
     </div>
+    <p class="net-note" id="netNote" role="status" hidden></p>
     <div class="tn-grid">
       <div class="panel tn-a"><h3>Темнота</h3><div id="tnDark"><p class="muted">Считаю…</p></div></div>
       <div class="panel tn-b"><h3>Планеты этой ночью</h3><ul class="tn-list" id="tnPlanets"><li class="tn-empty">Считаю…</li></ul></div>
       <div class="panel tn-c"><h3>Луна</h3><div id="tnMoon"></div></div>
       <div class="panel tn-d"><h3>Для бинокля и телескопа</h3><ul class="tn-list" id="tnDso"><li class="tn-empty">Подбираю объекты под ваше небо…</li></ul></div>
       <div class="panel tn-e"><h3>Ближайшие события</h3><div id="tnEvents"></div><a class="more" href="#events">Весь календарь <span aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="cond-grid">
+      <div class="panel cond-wx" id="wx">
+        <div class="cond-head"><h3>Облачность этой ночью</h3><span class="muted cond-src">прогноз Open-Meteo</span></div>
+        <div id="wxBody"><p class="muted">Загружаю прогноз облачности…</p></div>
+      </div>
+      <div class="panel" id="iss">
+        <div class="cond-head"><h3>Пролёты МКС</h3><span class="muted cond-src">орбита CelesTrak</span></div>
+        <div id="issBody"><p class="muted">Считаю пролёты станции над вашим местом…</p></div>
+      </div>
+      <div class="panel" id="aurora">
+        <div class="cond-head"><h3>Полярное сияние</h3><span class="muted cond-src">индекс Kp, NOAA</span></div>
+        <div id="auroraBody"><p class="muted">Загружаю прогноз геомагнитной активности…</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAILY -->
+<section class="block" id="daily">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Каждый день новое</span>
+      <h2>Сегодня на сайте</h2>
+      <p>Новый объект, который можно увидеть над вашим городом, и один вопрос. Заглядывайте каждый день и держите серию ответов.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="panel"><h3>Объект дня</h3><div id="odBox"><p class="muted">Выбираю объект для вашего неба…</p></div></div>
+      <div class="panel"><span class="qd-streak" id="qdStreak"></span><h3>Вопрос дня</h3><div id="qdBox"></div></div>
     </div>
   </div>
 </section>
@@ -1125,6 +1265,27 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
   </div>
 </section>
 
+<!-- MOON CALENDAR -->
+<section class="block" id="mooncal">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Для наблюдателей</span>
+      <h2>Лунный календарь</h2>
+      <p>Фаза Луны на каждый вечер месяца. Тёмные ночи с тонкой Луной лучше всего подходят для галактик, туманностей и звездопадов.</p>
+    </div>
+    <div class="panel">
+      <div class="mc-head">
+        <button type="button" class="btn" id="mcPrev" aria-label="Предыдущий месяц">←</button>
+        <b id="mcTitle" aria-live="polite"></b>
+        <button type="button" class="btn" id="mcNext" aria-label="Следующий месяц">→</button>
+      </div>
+      <div class="mc-grid" id="mcGrid"></div>
+      <p class="mc-sum" id="mcSum"></p>
+      <p class="note">Фаза показана на 21:00 по времени вашего устройства. Рамкой выделены тёмные ночи: Луна освещена не больше чем на 15 %.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ASTROPHOTO -->
 <section class="block" id="photos">
   <div class="wrap">
@@ -1197,6 +1358,58 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
   </div>
 </section>
 
+<!-- DIARY -->
+<section class="block" id="diary">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Для наблюдателей</span>
+      <h2>Дневник наблюдений</h2>
+      <p>Отмечайте, что уже видели своими глазами, и записывайте лучшие ночи. Начните с Луны и ярких планет, а дальше доберётесь до далёких галактик.</p>
+    </div>
+    <div class="dy-grid">
+      <div class="dy-side">
+        <div class="panel">
+          <h3>Ваш прогресс</h3>
+          <p class="dy-num" id="dyCount"></p>
+          <div class="dy-bar"><i id="dyBar"></i></div>
+          <ul class="dy-ach" id="dyAch"></ul>
+        </div>
+        <form class="panel dy-form" id="dyForm" autocomplete="off">
+          <h3>Новая запись</h3>
+          <div class="field-row">
+            <label class="f" for="dyDate">Дата
+              <input id="dyDate" type="date" required>
+            </label>
+            <label class="f" for="dyTool">Чем смотрели
+              <select id="dyTool"><option>Глазами</option><option>Бинокль</option><option>Телескоп</option><option>Камера</option></select>
+            </label>
+            <label class="f f-wide" for="dyObj">Что видели
+              <input id="dyObj" type="text" list="dyList" maxlength="60" required placeholder="Юпитер, Орион, Плеяды">
+              <datalist id="dyList"></datalist>
+            </label>
+            <label class="f f-wide" for="dyText">Заметка
+              <textarea id="dyText" maxlength="500" placeholder="Какое было небо, что запомнилось"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn primary">Сохранить запись</button>
+          <ul class="dy-notes" id="dyNotes"></ul>
+        </form>
+        <div class="panel">
+          <h3>Копия дневника</h3>
+          <p class="muted">Дневник хранится только в этом браузере. Если очистить данные сайта, он пропадёт, поэтому иногда сохраняйте копию в файл. Из файла дневник можно перенести и на другое устройство.</p>
+          <div class="dy-tools">
+            <button type="button" class="btn" id="dySave">Сохранить в файл</button>
+            <button type="button" class="btn" id="dyLoad">Загрузить из файла</button>
+            <input type="file" id="dyFile" accept="application/json,.json" hidden>
+          </div>
+        </div>
+      </div>
+      <div class="panel" id="dyGroups"></div>
+    </div>
+    <p class="privacy-note">Отметки и заметки никуда не отправляются и видны только на этом устройстве. <a href="#about-privacy">Подробнее о конфиденциальности</a></p>
+  </div>
+</section>
+
 <!-- KIDS -->
 <section class="block" id="kids">
   <div class="wrap">
@@ -1238,6 +1451,18 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
       <div><h4>Ты видишь Солнце в прошлом</h4><p>Свет от Солнца летит до нас около 8 минут. Мы всегда видим Солнце таким, каким оно было 8 минут назад.</p></div>
       <div><h4>Чайная ложка звезды</h4><p>Ложка вещества нейтронной звезды весила бы около миллиарда тонн. Это больше, чем вес горы Эверест.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- PLANET TEST -->
+<section class="block" id="planet-test">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Весёлый тест</span>
+      <h2>Какая ты планета?</h2>
+      <p>Шесть вопросов о тебе, и станет ясно, на какую планету ты похож. Это игра, а не наука, но факты о планетах настоящие.</p>
+    </div>
+    <div class="panel" id="ptBox"></div>
   </div>
 </section>
 
@@ -1394,6 +1619,9 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
             <li><b>Видимость событий</b> считается для выбранного места: высота Луны во время лунного затмения, доля закрытого диска Солнца при солнечном, высота радианта звездопада и яркость Луны в ночь пика.</li>
             <li><b>Спутники Юпитера</b> показаны по теории L1 (IMCCE). Положения спутников Марса, Сатурна, Урана и Нептуна на орбитах приблизительные.</li>
             <li><b>Схема «Вид сверху»</b> упрощена: орбиты показаны кругами, расстояния сжаты.</li>
+            <li><b>Облачность</b> — почасовой прогноз Open-Meteo для выбранного места. Хорошим временем считаются часы, когда Солнце ниже −12° под горизонтом, а облака закрывают не больше 30 % неба.</li>
+            <li><b>Пролёты МКС</b> считаются по свежей орбите с CelesTrak моделью SGP4 (библиотека satellite.js). Пролёт считается видимым, если станция выше 10°, освещена Солнцем, а у вас уже сумерки. Яркость оценена приблизительно.</li>
+            <li><b>Полярное сияние</b>: индекс Kp и его прогноз на трое суток берутся у Центра прогнозов космической погоды NOAA. Шанс увидеть сияние оценивается по геомагнитной широте места. Это грубая оценка: сияние зависит и от других параметров солнечного ветра.</li>
             <li><b>Автоматическая проверка астрофото</b> делается с помощью Claude по самому изображению. Она не ищет копии снимка в интернете, поэтому окончательное решение принимает администратор.</li>
           </ul>
           <p class="muted">Все расчёты подходят для обучения и планирования наблюдений, но не для навигации и научных публикаций.</p>
@@ -1407,8 +1635,10 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
             <li><b>Место наблюдения, тема, избранные события, фильтры и лучший результат викторины</b> хранятся только в вашем браузере (localStorage). Мы их не видим. Очистить можно в настройках браузера.</li>
             <li><b>Сайт не запрашивает вашу геолокацию.</b> Город вы выбираете сами.</li>
             <li><b>Поиск населённого пункта через Claude</b> отправляет в Claude только название, которое вы ввели.</li>
+            <li><b>Прогноз облачности</b> запрашивается у сервиса Open-Meteo: ему отправляются только координаты выбранного места, округлённые до сотых градуса (около километра). <b>Орбита МКС</b> загружается с CelesTrak, <b>индекс Kp</b> — с сервера NOAA, в этих запросах ваших данных нет. Загруженные прогнозы сохраняются в браузере, чтобы работать без интернета.</li>
+            <li><b>Дневник наблюдений</b> хранится только в вашем браузере (localStorage). Мы его не видим. Копию можно сохранить в файл на своём устройстве.</li>
             <li><b>Снимки в галерее</b> загружают участники с аккаунтом Claude. Загруженный файл и подпись видит администратор, а после одобрения — все посетители. Снимок можно удалить по просьбе автора.</li>
-            <li>Сайт не использует рекламу, счётчики посещений и сторонние трекеры. Шрифты загружаются с Google Fonts.</li>
+            <li>Сайт не использует рекламу, счётчики посещений и сторонние трекеры. Шрифты загружаются с Google Fonts, библиотека расчёта орбит — с cdnjs.</li>
           </ul>
         </div>
       </details>
@@ -1417,7 +1647,7 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
         <div class="about-body" id="contactsBox"></div>
       </details>
     </div>
-    <script type="application/json" id="siteContacts">{"email":"vladic2020@yandex.ru","telegram":"","vk":"","note":"Пишите, если хотите опубликовать снимок, если хотите чтобы на сайте что то новое появилось, все ваши пожелания, рекомендации будут учтены)))"}</script>
+    <script type="application/json" id="siteContacts">{"email":"vladic2020@yandex.ru","telegram":"","vk":"","note":"Пишите, если хотите опубликовать снимок или чтобы на сайте появилось что-то новое. Все пожелания и рекомендации будут учтены."}</script>
   </div>
 </section>
 </main>
@@ -1437,6 +1667,10 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
           <li><a href="#planetarium">Планетарий</a></li>
           <li><a href="#events">Календарь событий</a></li>
           <li><a href="#photos">Астрофото</a></li>
+          <li><a href="#daily">Сегодня на сайте</a></li>
+          <li><a href="#mooncal">Лунный календарь</a></li>
+          <li><a href="#planet-test">Какая ты планета?</a></li>
+          <li><a href="#diary">Дневник наблюдений</a></li>
           <li><a href="#kids">Детям</a></li>
           <li><a href="#calc">Калькуляторы</a></li>
         </ul>
@@ -1461,11 +1695,14 @@ if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostnam
           <li>Фото солнечной короны 1 августа 2008 года: Georg Zotti</li>
           <li>Карты планет: NASA/JPL, J. Hastings-Trew, O. Pluton, R. Kabatsayev</li>
           <li>Расчёты: Astronomy Engine (Don Cross)</li>
+          <li>Облачность: Open-Meteo (CC BY 4.0)</li>
+          <li>Орбита МКС: CelesTrak, расчёт satellite.js</li>
+          <li>Индекс Kp: NOAA Space Weather Prediction Center</li>
           <li>Города: HFLabs</li>
         </ul>
       </div>
     </div>
-    <div class="foot-bottom"><span>© 2026 «Космос ближе, чем кажется» · версия 2.0 · обновлено 19 октября 2026</span><a href="#main">Наверх <span aria-hidden="true">↑</span></a></div>
+    <div class="foot-bottom"><span>© 2026 «Космос ближе, чем кажется» · версия 2.1 · обновлено 31 октября 2026</span><a href="#main">Наверх <span aria-hidden="true">↑</span></a></div>
   </div>
 </footer>
 </div>
@@ -1670,7 +1907,15 @@ function copyText(text,okMsg,title){
   }catch(e){ textDialog(title||'Скопируйте текст','Браузер не дал скопировать автоматически. Текст уже выделен.',text); return Promise.resolve(); }
 }
 api.copyText=copyText;
-api.share=function(token,what){ return copyText(BASE+'#'+token,'Ссылка'+(what?' на '+what:'')+' скопирована','Ссылка'+(what?' на '+what:'')); };
+/* phones get the system share sheet (Telegram, VK…); computers and refusals fall back to copying the link */
+api.share=function(token,what,text){
+  var url=BASE+'#'+token, copy=function(){ return copyText(url,'Ссылка'+(what?' на '+what:'')+' скопирована','Ссылка'+(what?' на '+what:'')); };
+  var touch=!!(window.matchMedia&&matchMedia('(pointer: coarse)').matches);
+  if(touch&&navigator.share){
+    return navigator.share({title:document.title,text:text||('Космос ближе, чем кажется'+(what?': '+what:'')),url:url}).catch(function(e){ if(!e||e.name!=='AbortError') return copy(); });
+  }
+  return copy();
+};
 api.shareUrl=function(token){ return BASE+'#'+token; };
 
 /* ---------- saving files (ICS) ---------- */
@@ -1771,6 +2016,10 @@ var SECTIONS=[
   ['events','Календарь событий','Затмения, звездопады, противостояния'],
   ['observe','Инструменты наблюдателя','Звёздное время, фазы Луны, объекты по сезонам'],
   ['photos','Астрофото','Снимки участников с Seestar и других телескопов'],
+  ['daily','Сегодня на сайте','Объект дня и вопрос дня'],
+  ['mooncal','Лунный календарь','Фазы Луны и тёмные ночи на каждый месяц'],
+  ['planet-test','Какая ты планета?','Весёлый тест из шести вопросов'],
+  ['diary','Дневник наблюдений','Что вы уже видели на небе, достижения и записи'],
   ['kids','Детям','Вес и возраст на других планетах'],
   ['quiz','Викторина','12 вопросов с объяснениями'],
   ['calc','Калькуляторы','Кеплер, космические скорости, Вин, расстояния'],
@@ -2751,7 +3000,7 @@ $('#evList').addEventListener('click',function(e){
   if((b=e.target.closest('[data-ev-fav]'))){ var id2=b.dataset.evFav, on=S.toggleFav(id2); S.toast(on?'Добавлено в избранное':'Убрано из избранного'); renderEvents(); var nb=document.querySelector('[data-ev-fav="'+id2+'"]'); if(nb) nb.focus(); return; }
   if((b=e.target.closest('[data-ev-ics]'))){ var ev=evById(b.dataset.evIcs); if(ev) S.saveFile(ev.id+'.ics',ics([ev]),'text/calendar'); return; }
   if((b=e.target.closest('[data-ev-sky]'))){ var ev2=evById(b.dataset.evSky); if(ev2) showOnSky(ev2.target); return; }
-  if((b=e.target.closest('[data-ev-share]'))){ S.share('event-'+b.dataset.evShare,'событие'); return; }
+  if((b=e.target.closest('[data-ev-share]'))){ var ev3=evById(b.dataset.evShare); S.share('event-'+b.dataset.evShare,'событие',ev3?ev3.title+', '+dayMonth(ev3.date)+'. '+ev3.short+(ev3.visText?' '+ev3.visText+' ('+S.locLabel()+')':''):''); return; }
   if(e.target.closest('[data-ev-reset]')) resetF();
 });
 $('#evIcsAll').addEventListener('click',function(){ var list=EV.filter(function(e){ return S.isFav(e.id); }); if(list.length) S.saveFile('kosmos-izbrannoe.ics',ics(list),'text/calendar'); });
@@ -3360,6 +3609,21 @@ function render(){
     }
     ctx.stroke();
   }
+  /* satellite pass requested from the ISS block: path, minute ticks, position at the simulated time */
+  if(track&&Math.abs(simMs-track.t)<40*60000){
+    ctx.strokeStyle='rgba(241,197,111,0.9)'; ctx.lineWidth=2;
+    polyline(track.pts.map(function(p){ return proj(hVec(p.az,p.alt)); }));
+    ctx.fillStyle='rgba(241,197,111,0.95)';
+    for(var ti=0;ti<track.pts.length;ti++){
+      var tp=track.pts[ti]; if(tp.t%60000!==0) continue;
+      var tq=proj(hVec(tp.az,tp.alt)); if(!onScreen(tq)) continue;
+      ctx.beginPath(); ctx.arc(tq[0],tq[1],2.5,0,6.2832); ctx.fill();
+      qLabel(window.Site.hm(new Date(tp.t)),tq[0],tq[1],6,{size:11,fam:'"JetBrains Mono", ui-monospace, monospace',weight:500,col:'rgba(241,197,111,0.9)',pri:40});
+    }
+    var tk=track.pts, now2=null;
+    for(var tj=1;tj<tk.length;tj++) if(tk[tj-1].t<=simMs&&tk[tj].t>=simMs){ var f=(simMs-tk[tj-1].t)/(tk[tj].t-tk[tj-1].t||1); now2=proj(hVec(tk[tj-1].az+(((tk[tj].az-tk[tj-1].az+540)%360)-180)*f,tk[tj-1].alt+(tk[tj].alt-tk[tj-1].alt)*f)); break; }
+    if(onScreen(now2)){ ctx.beginPath(); ctx.arc(now2[0],now2[1],6,0,6.2832); ctx.fillStyle='#fff6dc'; ctx.fill(); qLabel(track.label,now2[0],now2[1],10,{size:13,weight:600,col:'#f1c56f',pri:60}); }
+  }
   /* deep-sky markers */
   if(opt.dso&&ready&&sunAlt<-8){
     var dlim=view.fov>100?6:view.fov>50?7.5:view.fov>20?9.5:view.fov>8?11.5:14;
@@ -3922,7 +4186,15 @@ function showTarget(t){
   }
   if(t.name){ $('#plQ').value=t.name; bodiesAt=-1e15; $('#plSearch').dispatchEvent(new Event('submit',{cancelable:true})); }
 }
-window.PL={show:function(t){ if(ready) showTarget(t); else { var iv=setInterval(function(){ if(ready){ clearInterval(iv); showTarget(t); } },200); } },dso:null};
+var track=null;
+function showTrack(t){
+  track=t; simMs=t.t; setSpeedSlider(1); syncInput();
+  var top=t.pts.reduce(function(a,b){ return b.alt>a.alt?b:a; });
+  view.az=top.az; view.alt=clamp(top.alt*0.6,10,70); view.fov=110; selected=null; $('#plInfo').hidden=true;
+  $('#plMsg').textContent='Пролёт: '+t.label+'. Жёлтая линия показывает путь по небу, точки отмечают каждую минуту. Запустите время, чтобы увидеть движение.'; force=true;
+}
+window.PL={show:function(t){ track=null; if(ready) showTarget(t); else { var iv=setInterval(function(){ if(ready){ clearInterval(iv); showTarget(t); } },200); } },
+  track:function(t){ if(ready) showTrack(t); else { var iv=setInterval(function(){ if(ready){ clearInterval(iv); showTrack(t); } },200); } },dso:null};
 function onReadyAPI(){
   window.PL.dso=DSO;
   var items=[];
@@ -3944,6 +4216,243 @@ initGL();
 resize();
 loadCatalogue();
 requestAnimationFrame(frame);
+})();
+
+/* ===================== OBSERVING CONDITIONS: clouds, ISS passes, aurora ===================== */
+(function(){
+"use strict";
+var S=window.Site, esc=S.esc, A=window.Astronomy||null, $=function(s){return document.querySelector(s);};
+var D2R=Math.PI/180, MIN=60000, HOUR=3600000, DAY=86400000;
+function fmtNum(x,d){ return x.toFixed(d).replace('.',',').replace('-','−'); }
+function hm(d){ return S.hm(d instanceof Date?d:new Date(d)); }
+function dayShort(t){ var d=new Date(t), n=Math.round((new Date(d.getFullYear(),d.getMonth(),d.getDate())-new Date(new Date().setHours(0,0,0,0)))/DAY); return n===0?'сегодня':n===1?'завтра':n===-1?'вчера':d.toLocaleDateString('ru-RU',{weekday:'short',day:'numeric',month:'long'}); }
+function whenSaved(t){ return dayShort(t)+' в '+hm(t); }
+function observer(){ var l=S.loc(); return new A.Observer(l.lat,l.lon,0); }
+function altOf(body,d,o){ var eq=A.Equator(body,d,o,true,true); return A.Horizon(d,o,eq.ra,eq.dec,'normal').altitude; }
+
+/* ---------- online data, kept in the browser so the blocks still work without a network ---------- */
+var stale={};
+function getData(key,k,url,ttl,asText){
+  var c=S.loadJSON('net.'+key,null); if(c&&c.k!==k) c=null;
+  if(c&&Date.now()-c.t<ttl) return Promise.resolve({data:c.d,t:c.t});
+  return fetch(url).then(function(r){ if(!r.ok) throw new Error(String(r.status)); return asText?r.text():r.json(); }).then(function(d){
+    S.store('net.'+key,JSON.stringify({k:k,t:Date.now(),d:d})); delete stale[key]; netNote(); return {data:d,t:Date.now()};
+  },function(e){
+    if(c){ stale[key]=c.t; netNote(); return {data:c.d,t:c.t,old:true}; }
+    stale[key]=0; netNote(); throw e;
+  });
+}
+function netNote(){
+  var el=$('#netNote'), keys=Object.keys(stale), saved=keys.filter(function(k){ return stale[k]; });
+  if(!keys.length&&navigator.onLine!==false){ el.hidden=true; return; }
+  el.textContent=saved.length?'Нет сети, показаны сохранённые данные от '+whenSaved(Math.min.apply(null,saved.map(function(k){ return stale[k]; })))+'. Прогноз обновится, когда появится интернет. Расчёты неба работают и без него.'
+    :'Нет сети: прогноз облачности, пролёты МКС и сияние загрузятся, когда появится интернет. Расчёты неба работают и без него.';
+  el.hidden=false;
+}
+
+/* ---------- clouds for the coming night ---------- */
+function nightSpan(o){
+  var now=new Date(), start, end;
+  try{
+    if(altOf('Sun',now,o)<-0.8) start=now; else { var s=A.SearchRiseSet('Sun',o,-1,now,2); start=s&&s.date; }
+    if(start){ var r=A.SearchRiseSet('Sun',o,+1,start,2); end=r&&r.date; }
+  }catch(e){}
+  if(!start||!end||end-start>20*HOUR){ start=now; end=new Date(now.getTime()+12*HOUR); }
+  return {from:new Date(Math.floor(start.getTime()/HOUR)*HOUR),to:new Date(Math.ceil(end.getTime()/HOUR)*HOUR)};
+}
+function cloudWord(c){ return c<=25?'ясно':c<=60?'переменная облачность':c<=85?'облачно':'пасмурно'; }
+function cloudQ(c){ return c<=25?'good':c<=60?'mid':'bad'; }
+var WXN=null;
+function loadWx(){
+  if(!A) return;
+  var l=S.loc(), la=l.lat.toFixed(2), lo=l.lon.toFixed(2);
+  var url='https://api.open-meteo.com/v1/forecast?latitude='+la+'&longitude='+lo+'&hourly=cloud_cover,cloud_cover_low,cloud_cover_mid,cloud_cover_high&forecast_days=3&timeformat=unixtime&timezone=GMT';
+  getData('wx',la+','+lo,url,HOUR).then(function(r){ renderWx(r.data,r); },function(){
+    WXN=null; renderHeroWx();
+    $('#wxBody').innerHTML='<p class="muted">Прогноз облачности сейчас не загрузился. Он появится здесь, когда будет связь с сервером прогнозов.</p>';
+  });
+}
+function renderWx(d,meta){
+  var o=observer(), sp=nightSpan(o), h=d&&d.hourly, rows=[];
+  if(!h||!h.time){ $('#wxBody').innerHTML='<p class="muted">Прогноз на эту ночь пока недоступен.</p>'; WXN=null; renderHeroWx(); return; }
+  for(var t=sp.from.getTime();t<sp.to.getTime()&&rows.length<18;t+=HOUR){
+    var i=h.time.indexOf(t/1000); if(i<0) continue;
+    var dt=new Date(t+HOUR/2), sun=altOf('Sun',dt,o), mAlt=altOf('Moon',dt,o), ill=A.Illumination('Moon',dt).phase_fraction;
+    rows.push({t:t,c:h.cloud_cover[i],lo:h.cloud_cover_low[i],mid:h.cloud_cover_mid[i],hi:h.cloud_cover_high[i],sun:sun,moon:mAlt>0?ill:0});
+  }
+  if(!rows.length){ $('#wxBody').innerHTML='<p class="muted">Прогноз на эту ночь пока недоступен.</p>'; WXN=null; renderHeroWx(); return; }
+  var dark=rows.filter(function(r){ return r.sun<-12; }); if(!dark.length) dark=rows.filter(function(r){ return r.sun<-6; }); if(!dark.length) dark=rows;
+  var avg=Math.round(dark.reduce(function(s,r){ return s+r.c; },0)/dark.length);
+  var best=null, run=null;
+  rows.forEach(function(r){
+    r.ok=r.sun<-12&&r.c<=30;
+    if(r.ok){ if(!run) run={a:r.t,b:r.t+HOUR,moon:0}; run.b=r.t+HOUR; run.moon=Math.max(run.moon,r.moon); if(!best||run.b-run.a>best.b-best.a) best=run; } else run=null;
+  });
+  WXN={avg:avg,best:best,old:!!meta.old};
+  var sum='<b>Ночью '+cloudWord(avg)+', облачность около '+avg+' %.</b> '+
+    (best?'Хорошие условия '+(best.b-best.a>=2*HOUR?'с '+hm(best.a)+' до '+hm(best.b):'около '+hm(best.a))+'.'+(best.moon>0.5?' Правда, на небе будет яркая Луна: слабые туманности видны хуже.':''):'Окон чистого тёмного неба не ожидается.');
+  var strip=rows.map(function(r){
+    var dc=r.sun>=0?'#9fb8f0':r.sun>-6?'#6077c0':r.sun>-12?'#34428a':r.sun>-18?'#1d2558':'#0b1030';
+    var lbl=hm(r.t)+': облачность '+r.c+' % (нижняя '+r.lo+', средняя '+r.mid+', верхняя '+r.hi+')'+(r.moon?', Луна над горизонтом':'')+(r.ok?', хорошее время для наблюдений':'');
+    return '<div class="wx-h" title="'+esc(lbl)+'" role="listitem" aria-label="'+esc(lbl)+'"><span>'+hm(r.t).slice(0,2)+'</span><div class="wx-c'+(r.ok?' ok':'')+'"><i style="opacity:'+(0.12+0.88*r.c/100).toFixed(2)+'"></i><em>'+r.c+'</em></div><div class="wx-d" style="background:'+dc+'"></div><div class="wx-m" aria-hidden="true">'+(r.moon?'<span style="opacity:'+(0.35+0.65*r.moon).toFixed(2)+'">☾</span>':'')+'</div></div>';
+  }).join('');
+  $('#wxBody').innerHTML='<p class="cond-sum">'+sum+'</p><div class="wx-strip" role="list" aria-label="Облачность по часам">'+strip+'</div>'+
+    '<div class="wx-legend"><span><i style="background:#b9c1d6"></i>облака, % неба</span><span><i style="background:#0b1030;border:1px solid var(--line)"></i>темнота неба</span><span>☾ Луна над горизонтом</span><span><i style="box-shadow:inset 0 0 0 2px var(--good)"></i>хорошее время</span></div>'+
+    (meta.old?'<p class="note">Сохранённый прогноз от '+whenSaved(meta.t)+'.</p>':'<p class="note">Прогноз для точки '+esc(S.locLabel())+', обновлён '+whenSaved(meta.t)+'. Время местное по вашему устройству.</p>');
+  renderHeroWx();
+}
+function renderHeroWx(){
+  var el=$('#skyWx');
+  if(!WXN){ el.hidden=true; return; }
+  var b=WXN.best;
+  el.innerHTML='<span class="q '+cloudQ(WXN.avg)+'"></span><span><b>Облачность ночью: '+WXN.avg+' %</b> · '+(b?'хорошие условия '+(b.b-b.a>=2*HOUR?'с '+hm(b.a)+' до '+hm(b.b):'около '+hm(b.a)):'наблюдать будет трудно')+(WXN.old?' (сохранённый прогноз)':'')+'</span>';
+  el.hidden=false;
+}
+
+/* ---------- ISS passes: orbit from CelesTrak, positions by SGP4 (satellite.js) ---------- */
+var SAT_URL='https://cdnjs.cloudflare.com/ajax/libs/satellite.js/5.0.0/satellite.min.js', satP=null, PASSES=[];
+function satLib(){
+  if(window.satellite) return Promise.resolve(window.satellite);
+  if(!satP) satP=new Promise(function(res,rej){ var s=document.createElement('script'); s.src=SAT_URL; s.crossOrigin='anonymous'; s.onload=function(){ window.satellite?res(window.satellite):rej(new Error('lib')); }; s.onerror=function(){ satP=null; s.remove(); rej(new Error('lib')); }; document.head.appendChild(s); });
+  return satP;
+}
+function vsub(a,b){ return [a[0]-b[0],a[1]-b[1],a[2]-b[2]]; }
+function vlen(a){ return Math.sqrt(a[0]*a[0]+a[1]*a[1]+a[2]*a[2]); }
+function vdot(a,b){ return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]; }
+function computePasses(sat,tle){
+  var rec=sat.twoline2satrec(tle[1],tle[2]), l=S.loc(), o=observer();
+  var gd={latitude:l.lat*D2R,longitude:l.lon*D2R,height:0.15}, obsEcf=sat.geodeticToEcf(gd);
+  var t0=Math.floor(Date.now()/MIN)*MIN-10*MIN, t1=t0+5*DAY, step=20000, out=[], cur=null, sunCache={};
+  function sunDir(t){ var k=Math.floor(t/(10*MIN)); if(!sunCache[k]){ var v=A.GeoVector('Sun',new Date(k*10*MIN),true), n=Math.hypot(v.x,v.y,v.z); sunCache[k]=[v.x/n,v.y/n,v.z/n]; } return sunCache[k]; }
+  for(var t=t0;t<=t1;t+=step){
+    var d=new Date(t), pv=sat.propagate(rec,d); if(!pv||!pv.position) continue;
+    var gmst=sat.gstime(d), la=sat.ecfToLookAngles(gd,sat.eciToEcf(pv.position,gmst)), alt=la.elevation/D2R;
+    if(alt>0){
+      var p=[pv.position.x,pv.position.y,pv.position.z], s=sunDir(t), along=vdot(p,s);
+      var lit=along>0||Math.sqrt(Math.max(0,vdot(p,p)-along*along))>6371;
+      var oe=sat.ecfToEci(obsEcf,gmst), toObs=vsub([oe.x,oe.y,oe.z],p);
+      if(!cur) cur=[];
+      cur.push({t:t,alt:alt,az:la.azimuth/D2R,range:la.rangeSat,lit:lit,phase:Math.acos(Math.max(-1,Math.min(1,vdot(s,toObs)/vlen(toObs))))});
+    } else if(cur){ out.push(cur); cur=null; }
+  }
+  if(cur) out.push(cur);
+  return out.map(function(pts){
+    pts.forEach(function(p){ p.vis=p.lit&&p.alt>=10&&altOf('Sun',new Date(p.t),o)<-6; });
+    var v=pts.filter(function(p){ return p.vis; }); if(!v.length) return null;
+    var top=v.reduce(function(a,b){ return b.alt>a.alt?b:a; }), last=v[v.length-1], li=pts.indexOf(last);
+    var F=function(ph){ return Math.max(0.01,((Math.PI-ph)*Math.cos(ph)+Math.sin(ph))/Math.PI); };
+    var mag=-1.8+5*Math.log(top.range/1000)/Math.LN10-2.5*Math.log(F(top.phase)/F(Math.PI/2))/Math.LN10;
+    return {a:v[0],b:last,top:top,mag:mag,shadow:li<pts.length-1&&!pts[li+1].lit,pts:pts};
+  }).filter(Boolean).slice(0,6);
+}
+function bright(m){ return m<=-3?'очень ярко':m<=-1.5?'ярко':'заметно'; }
+function loadIss(){
+  if(!A) return;
+  getData('tle','iss','https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=TLE',12*HOUR,true).then(function(r){
+    var lines=String(r.data).trim().split(/\r?\n/).map(function(s){ return s.trim(); });
+    if(lines.length<3||lines[1].charAt(0)!=='1'||lines[2].charAt(0)!=='2') throw new Error('tle');
+    return satLib().then(function(sat){
+      PASSES=computePasses(sat,lines);
+      var rec=sat.twoline2satrec(lines[1],lines[2]), age=(Date.now()-(rec.jdsatepoch-2440587.5)*DAY)/DAY;
+      renderIss(age);
+    });
+  }).catch(function(){
+    $('#issBody').innerHTML='<p class="muted">Не удалось загрузить орбиту МКС. Пролёты появятся здесь, когда будет связь с интернетом.</p>';
+  });
+}
+function renderIss(age){
+  var box=$('#issBody'), l=S.locLabel();
+  var tail='<p class="note">МКС выглядит как яркая немигающая звезда, которая за несколько минут пересекает небо. Время для места «'+esc(l)+'»'+(age>4?'. Орбита обновлялась '+Math.round(age)+' '+S.plural(Math.round(age),['день','дня','дней'])+' назад, время может отличаться на 1–2 минуты':'')+'.</p>';
+  if(!PASSES.length){ box.innerHTML='<p class="tn-empty">В ближайшие 5 дней МКС не будет видна: она пролетает над вами днём или в тени Земли. Такие перерывы длятся одну-две недели.</p>'+tail; return; }
+  box.innerHTML='<ul class="tn-list iss-list">'+PASSES.map(function(p,i){
+    return '<li><div class="tn-it"><b>'+dayShort(p.a.t)+', '+(hm(p.a.t)===hm(p.b.t)?'около '+hm(p.a.t):hm(p.a.t)+'–'+hm(p.b.t))+'</b><span class="mono">'+Math.round(p.top.alt)+'° · '+fmtNum(p.mag,1)+'ᵐ</span></div>'+
+      '<p class="iss-path">Появится на '+S.dirIn(p.a.az)+', выше всего в '+hm(p.top.t)+' на '+S.dirIn(p.top.az)+' ('+Math.round(p.top.alt)+'° над горизонтом), '+(p.shadow?'исчезнет в тени Земли':'скроется')+' на '+S.dirIn(p.b.az)+'. Светит '+bright(p.mag)+'.</p>'+
+      '<button type="button" class="linkbtn" data-iss="'+i+'">Показать пролёт на небе</button></li>';
+  }).join('')+'</ul>'+tail;
+}
+$('#issBody').addEventListener('click',function(e){
+  var b=e.target.closest('[data-iss]'); if(!b) return; var p=PASSES[+b.dataset.iss]; if(!p) return;
+  if(!window.PL||!window.PL.track){ S.toast('Планетарий ещё загружается, попробуйте через пару секунд'); return; }
+  window.PL.track({label:'МКС',t:p.top.t,pts:p.pts.filter(function(q){ return q.alt>2; }).map(function(q){ return {t:q.t,az:q.az,alt:q.alt}; })});
+  S.goTo('planetarium');
+});
+
+/* ---------- aurora: planetary Kp index and forecast (NOAA SWPC) ---------- */
+var POLE=[80.8,-72.6]; /* geomagnetic north pole, IGRF 2025 */
+function magLat(lat,lon){ var a=lat*D2R,b=POLE[0]*D2R,dl=(lon-POLE[1])*D2R; return Math.asin(Math.sin(a)*Math.sin(b)+Math.cos(a)*Math.cos(b)*Math.cos(dl))/D2R; }
+/* Kp at which aurora shows low on the horizon (NOAA view line, roughly 66° − 2.3·Kp of magnetic latitude) */
+function kpNeed(ml){ return (66-Math.abs(ml))/2.3; }
+function gScale(kp){ return kp>=9?'G5':kp>=8?'G4':kp>=7?'G3':kp>=6?'G2':kp>=5?'G1':''; }
+var KP=null;
+function parseKp(d){
+  if(!Array.isArray(d)) return [];
+  return d.map(function(x){
+    if(Array.isArray(x)) x={time_tag:x[0],kp:x[1],observed:x[2]};
+    var t=Date.parse(String(x.time_tag).replace(' ','T')+(/Z$/.test(x.time_tag)?'':'Z')), k=parseFloat(x.kp);
+    return isFinite(t)&&isFinite(k)?{t:t,kp:k,pred:x.observed==='predicted'}:null;
+  }).filter(Boolean);
+}
+function loadKp(){
+  getData('kp','kp','https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json',30*MIN).then(function(r){ KP={list:parseKp(r.data),t:r.t,old:!!r.old}; renderKp(); },function(){
+    KP=null; renderHeroAlert();
+    $('#auroraBody').innerHTML='<p class="muted">Прогноз геомагнитной активности сейчас не загрузился. Он появится здесь, когда будет связь с интернетом.</p>';
+  });
+}
+function auroraState(){
+  if(!KP||!KP.list.length) return null;
+  var now=Date.now(), l=S.loc(), ml=magLat(l.lat,l.lon), need=kpNeed(ml);
+  var past=KP.list.filter(function(x){ return !x.pred&&x.t<=now; }), cur=past.length?past[past.length-1]:null;
+  var next=KP.list.filter(function(x){ return x.t>=now-3*HOUR&&x.t<now+24*HOUR; }).slice(0,8);
+  var max=next.reduce(function(m,x){ return Math.max(m,x.kp); },cur?cur.kp:0);
+  var lvl=need<=1?'zone':max>=need?'high':max>=need-1.5?'low':'none';
+  return {ml:ml,need:need,cur:cur,next:next,max:max,lvl:lvl,south:l.lat<0};
+}
+function renderKp(){
+  var st=auroraState(), box=$('#auroraBody');
+  if(!st){ box.innerHTML='<p class="muted">Прогноз пока недоступен.</p>'; renderHeroAlert(); return; }
+  var side=st.south?'юге':'севере', place=esc(S.locLabel()), g=gScale(st.max);
+  var verdict={
+    zone:'Вы в зоне полярных сияний: в ясную тёмную ночь сияние бывает почти всегда, сильнее всего около полуночи.',
+    high:'<b>Есть хороший шанс увидеть сияние этой ночью</b> на '+side+'. Отъезжайте от городских огней и смотрите в ясную погоду.',
+    low:'<b>Небольшой шанс:</b> сияние может появиться низко над '+(st.south?'южным':'северным')+' горизонтом. Глазом оно бледное, а на фото с выдержкой несколько секунд заметнее.',
+    none:'Сегодня шанс увидеть сияние в месте «'+place+'» очень низкий.'
+  }[st.lvl];
+  var needTxt=st.lvl==='zone'?'':'Для вашей широты нужна магнитная буря с индексом Kp не меньше '+fmtNum(Math.max(1,Math.round(st.need*3)/3),1)+'.';
+  var bars=st.next.map(function(x){ return '<div title="'+esc(hm(x.t)+': Kp '+fmtNum(x.kp,1)+(x.pred?' (прогноз)':''))+'"><span>'+fmtNum(x.kp,1)+'</span><b class="'+(x.kp>=7?'k7':x.kp>=5?'k5':'')+'" style="height:'+Math.max(3,x.kp/9*100).toFixed(0)+'%;'+(x.pred?'opacity:.7':'')+'"></b></div>'; }).join('');
+  var ax=st.next.map(function(x){ return '<span>'+hm(x.t).slice(0,2)+'</span>'; }).join('');
+  box.innerHTML='<p class="cond-sum">'+verdict+'</p>'+
+    '<div class="tn-it"><b>Сейчас Kp '+(st.cur?fmtNum(st.cur.kp,1):'—')+'</b><span class="mono">макс. за сутки '+fmtNum(st.max,1)+(g?' · буря '+g:'')+'</span></div>'+
+    '<div class="kp-bars" role="img" aria-label="Индекс Kp на ближайшие сутки, максимум '+fmtNum(st.max,1)+'">'+bars+'</div><div class="kp-ax" aria-hidden="true">'+ax+'</div>'+
+    '<p class="note">'+needTxt+' Kp показывает силу магнитной бури по шкале от 0 до 9, от 5 начинаются бури. Столбики по три часа, бледные — прогноз. '+(KP.old?'Сохранённые данные от '+whenSaved(KP.t)+'.':'Обновлено '+whenSaved(KP.t)+'.')+'</p>';
+  renderHeroAlert();
+}
+function renderHeroAlert(){
+  var el=$('#skyAlert'), st=auroraState();
+  if(!st||st.max<5||(st.lvl!=='high'&&st.lvl!=='low')){ el.hidden=true; return; }
+  el.innerHTML='<span aria-hidden="true">⚠</span><span><b>Магнитная буря '+gScale(st.max)+'</b>: '+(st.lvl==='high'?'этой ночью можно увидеть полярное сияние':'возможно слабое сияние низко над '+(st.south?'южным':'северным')+' горизонтом')+'. Подробнее →</span>';
+  el.hidden=false;
+}
+
+/* ---------- share the sky card ---------- */
+$('#skyShare').addEventListener('click',function(){
+  var lines=Array.prototype.map.call(document.querySelectorAll('#skyKv > div'),function(d){ return d.querySelector('dt').textContent+': '+d.querySelector('dd').textContent; });
+  if(WXN) lines.push('Облачность ночью: '+WXN.avg+' %');
+  S.share('tonight','небо на сегодня','Сегодня в небе, '+S.locLabel()+' — '+($('#phaseName').textContent||'')+'. '+lines.join('. ')+'.');
+});
+
+/* ---------- boot ---------- */
+S.addSearch([
+  {t:'Прогноз облачности',sub:'Можно ли сегодня наблюдать',g:'Разделы',k:'погода облака тучи',act:function(){ S.goTo('wx'); }},
+  {t:'Пролёты МКС',sub:'Когда увидеть космическую станцию',g:'Разделы',k:'мкс станция спутник iss',act:function(){ S.goTo('iss'); }},
+  {t:'Полярное сияние',sub:'Индекс Kp и шанс увидеть сияние',g:'Разделы',k:'сияние буря kp магнитная',act:function(){ S.goTo('aurora'); }}
+]);
+function refresh(){ stale={}; netNote(); loadWx(); loadIss(); loadKp(); }
+if(!A){ ['#wxBody','#issBody'].forEach(function(id){ $(id).innerHTML='<p class="muted">Астрономические расчёты не загрузились. Обновите страницу.</p>'; }); loadKp(); }
+else setTimeout(refresh,400);
+S.onLoc(function(){ if(A){ loadWx(); loadIss(); } if(KP) renderKp(); });
+window.addEventListener('online',refresh);
+window.addEventListener('offline',netNote);
+setInterval(function(){ if(!document.hidden&&A) refresh(); },30*MIN);
 })();
 
 /* ===================== ASTROPHOTO GALLERY with moderation ===================== */
@@ -4321,6 +4830,275 @@ if(window.claude&&typeof window.claude.use==='function'){
   if(window.STANDALONE){ var hw=$('#gHow'); if(hw) hw.hidden=true; if(j) j.innerHTML='<b>Хотите, чтобы ваш снимок появился здесь?</b> Пришлите его автору сайта вместе с названием объекта, телескопом и датой съёмки. Контакты — в разделе <a href="#about-contacts">«О проекте»</a>. Каждый снимок публикуется после проверки.'; }
   if(j) j.hidden=false;
 }
+})();
+
+/* ===================== OBJECT OF THE DAY and QUESTION OF THE DAY ===================== */
+(function(){
+var A=window.Astronomy, S=window.Site, esc=S.esc, $=function(s){ return document.querySelector(s); };
+/* [name, type, image, fact, body or [ra hours, dec degrees], name for the planetarium] */
+var OBJ=[
+  ['Луна','спутник Земли','planets/moon.jpg','Луна всегда повёрнута к нам одной стороной: она оборачивается вокруг оси за то же время, что и вокруг Земли.','Moon'],
+  ['Венера','планета','planets/venus.jpg','Самая яркая планета на нашем небе. Плотные облака отражают большую часть солнечного света.','Venus'],
+  ['Марс','планета','planets/mars.jpg','Рыжий цвет Марсу дают оксиды железа в его пыли, почти как ржавчина на Земле.','Mars'],
+  ['Юпитер','планета','planets/jupiter.jpg','Самая большая планета Солнечной системы. В бинокль рядом с ней видны четыре крупных спутника.','Jupiter'],
+  ['Сатурн','планета','planets/saturn.jpg','Кольца Сатурна состоят изо льда и камней и видны даже в небольшой телескоп.','Saturn'],
+  ['Сириус','звезда',null,'Самая яркая звезда ночного неба. Она находится всего в 8,6 светового года от нас.',[6.752,-16.716]],
+  ['Бетельгейзе','звезда',null,'Красный сверхгигант в плече Ориона. На месте Солнца он вышел бы за орбиту Марса.',[5.919,7.407]],
+  ['Вега','звезда',null,'Яркая голубоватая звезда Лиры. Примерно через 12 000 лет она окажется рядом с северным полюсом мира.',[18.616,38.784]],
+  ['Капелла','звезда',null,'Глазу кажется одной звездой, но на самом деле это система из двух пар звёзд.',[5.278,45.998]],
+  ['Арктур','звезда',null,'Оранжевый гигант в 37 световых годах от нас, самая яркая звезда северной половины неба.',[14.261,19.182]],
+  ['Туманность Андромеды','галактика','dso/m31.jpg','Ближайшая большая галактика. Свет, который вы видите, летел до нас около 2,5 миллиона лет.',[0.712,41.269],'M31'],
+  ['Туманность Ориона','туманность','dso/m42.jpg','Звёздная колыбель примерно в 1300 световых годах от нас. Видна в бинокль под поясом Ориона.',[5.588,-5.391],'M42'],
+  ['Плеяды','рассеянное скопление',null,'Скопление молодых звёзд. Глазом обычно различают 6–7 звёзд, а в бинокль видны десятки.',[3.791,24.105],'M45'],
+  ['M13 в Геркулесе','шаровое скопление','dso/m13.jpg','Шар из сотен тысяч звёзд примерно в 25 000 световых лет от Земли.',[16.695,36.459],'M13'],
+  ['Ясли','рассеянное скопление','dso/m44.jpg','Скопление в созвездии Рака. На тёмном небе оно заметно глазом как туманное пятнышко.',[8.667,19.67],'M44'],
+  ['Галактика Боде','галактика','dso/m81.jpg','Спиральная галактика примерно в 12 миллионах световых лет. Её можно найти в бинокль.',[9.926,69.065],'M81'],
+  ['Галактика Водоворот','галактика','dso/m51-vasey.jpg','Спиральная галактика, которая взаимодействует с меньшей соседкой, примерно в 30 миллионах световых лет.',[13.498,47.195],'M51'],
+  ['Туманность Кольцо','планетарная туманность','dso/m57dumont.jpg','Оболочка, сброшенная умирающей звездой. Похожая судьба ждёт Солнце через миллиарды лет.',[18.893,33.029],'M57'],
+  ['Туманность Гантель','планетарная туманность','dso/m27dumont.jpg','Первая открытая планетарная туманность. Её нашёл Шарль Мессье в 1764 году.',[19.994,22.721],'M27'],
+  ['Галактика Треугольника','галактика','dso/m33.jpg','Спиральная галактика примерно в 2,7 миллиона световых лет, одна из самых крупных в нашей Местной группе.',[1.564,30.66],'M33'],
+  ['Крабовидная туманность','остаток сверхновой','dso/m1dumont.jpg','Остаток взрыва звезды, который наблюдали на Земле в 1054 году.',[5.575,22.015],'M1']
+];
+var Q=[
+  ['Какая планета самая большая в Солнечной системе?',['Сатурн','Юпитер','Нептун'],1,'Юпитер тяжелее всех остальных планет, вместе взятых.'],
+  ['Сколько примерно летит свет от Солнца до Земли?',['8 секунд','8 минут','8 часов'],1,'Мы всегда видим Солнце таким, каким оно было около 8 минут назад.'],
+  ['Какая планета ближе всех к Солнцу?',['Меркурий','Венера','Марс'],0,'Меркурий облетает Солнце всего за 88 земных суток.'],
+  ['Какая планета самая горячая?',['Меркурий','Венера','Юпитер'],1,'Плотная углекислая атмосфера Венеры держит тепло, поэтому там теплее, чем на Меркурии.'],
+  ['Какая яркая звезда почти не движется на небе?',['Полярная','Сириус','Вега'],0,'Полярная находится почти у северного полюса мира, поэтому всё небо вращается вокруг неё.'],
+  ['Как называется наша галактика?',['Андромеда','Млечный Путь','Треугольник'],1,'Млечный Путь — спиральная галактика, в которой сотни миллиардов звёзд.'],
+  ['Почему на Земле меняются времена года?',['Из-за наклона оси','Из-за расстояния до Солнца','Из-за Луны'],0,'Ось Земли наклонена, поэтому полушария по очереди получают больше солнечного света.'],
+  ['Что происходит при солнечном затмении?',['Земля закрывает Луну','Луна закрывает Солнце','Солнце закрывает Луну'],1,'Луна проходит между Землёй и Солнцем, и её тень падает на Землю.'],
+  ['Что такое метеор?',['Падающая звезда','Частица, сгорающая в атмосфере','Маленькая планета'],1,'Звёзды не падают: светится песчинка из космоса, влетевшая в атмосферу.'],
+  ['Кто первым полетел в космос?',['Юрий Гагарин','Алексей Леонов','Нил Армстронг'],0,'Гагарин совершил полёт 12 апреля 1961 года.'],
+  ['Кто первым ступил на Луну?',['Юрий Гагарин','Базз Олдрин','Нил Армстронг'],2,'Армстронг вышел на Луну в июле 1969 года, а вскоре за ним Олдрин.'],
+  ['Сколько созвездий на всём небе?',['12','48','88'],2,'Международный астрономический союз признаёт 88 созвездий.'],
+  ['Сколько примерно дней проходит от полнолуния до полнолуния?',['14','29,5','45'],1,'Этот период называется синодическим месяцем.'],
+  ['Какая звезда самая яркая на ночном небе?',['Сириус','Полярная','Бетельгейзе'],0,'Сириус ярок потому, что сам мощный и находится близко к нам.'],
+  ['Какую планету называют красной?',['Венеру','Марс','Сатурн'],1,'Цвет Марсу придают оксиды железа.'],
+  ['Какая планета вращается, будто лёжа на боку?',['Уран','Сатурн','Земля'],0,'Ось Урана наклонена почти на 98 градусов.'],
+  ['Где находится самый высокий вулкан Солнечной системы?',['На Земле','На Венере','На Марсе'],2,'Гора Олимп на Марсе поднимается примерно на 22 километра.'],
+  ['Что измеряют световыми годами?',['Время','Расстояние','Яркость'],1,'Световой год — это расстояние, которое свет проходит за год.'],
+  ['Какое созвездие помогает найти Полярную звезду?',['Орион','Большая Медведица','Лебедь'],1,'Две крайние звезды ковша указывают на Полярную.'],
+  ['Какой объект ближе всего к Земле?',['Солнце','Марс','Луна'],2,'До Луны в среднем около 384 тысяч километров.']
+];
+function pad(x){ return (x<10?'0':'')+x; }
+function dayKey(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function hash(s){ var h=7; for(var i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))%2147483647; return h; }
+function renderObject(){
+  var now=new Date(), t=new Date(now.getFullYear(),now.getMonth(),now.getDate(),22,0), l=S.loc(), o=new A.Observer(l.lat,l.lon,0), list=[];
+  OBJ.forEach(function(it){
+    var src=it[4], ra, dec;
+    if(typeof src==='string'){ var eq=A.Equator(A.Body[src],t,o,true,true); ra=eq.ra; dec=eq.dec; } else { ra=src[0]; dec=src[1]; }
+    var h=A.Horizon(t,o,ra,dec,null);
+    if(h.altitude>=20) list.push({it:it,alt:h.altitude,az:h.azimuth});
+  });
+  var box=$('#odBox');
+  if(!list.length){ box.innerHTML='<p class="muted">Сегодня в 22:00 подходящих объектов высоко над горизонтом нет.</p>'; return; }
+  var p=list[hash(dayKey(now)+(l.name||l.lat))%list.length], it=p.it;
+  box.innerHTML='<div class="od-row'+(it[2]?'':' noimg')+'">'+(it[2]?'<img src="sky/'+it[2]+'" alt="'+esc(it[0])+'" loading="lazy">':'')+'<div><div class="od-name">'+esc(it[0])+'</div><div class="od-type">'+esc(it[1])+'</div><p>'+esc(it[3])+'</p><div class="od-sky">Сегодня в 22:00, '+esc(S.locLabel())+': на '+esc(S.dirIn(p.az))+', высота '+Math.round(p.alt)+'°</div><button type="button" class="btn" id="odShow" style="margin-top:12px">Показать на небе</button></div></div>';
+  $('#odShow').addEventListener('click',function(){ if(window.PL&&window.PL.show){ window.PL.show({name:it[5]||it[0]}); S.goTo('planetarium'); } });
+}
+function renderQuestion(){
+  var now=new Date(), key=dayKey(now), start=new Date(now.getFullYear(),0,0), day=Math.round((new Date(now.getFullYear(),now.getMonth(),now.getDate())-start)/86400000), q=Q[day%Q.length], st=S.loadJSON('qd.state',{}), box=$('#qdBox');
+  var yesterday=dayKey(new Date(now.getFullYear(),now.getMonth(),now.getDate()-1)), streak=(st.last===key||st.last===yesterday)?(st.streak||0):0;
+  $('#qdStreak').textContent=streak?'Серия: '+streak:'';
+  var answered=st.day===key;
+  box.innerHTML='<p class="qd-q">'+esc(q[0])+'</p><div class="opts">'+q[1].map(function(o,i){ var c=answered?(i===q[2]?' right':i===st.pick?' wrong':''):''; return '<button type="button" class="opt'+c+'" data-i="'+i+'"'+(answered?' disabled':'')+'>'+esc(o)+'</button>'; }).join('')+'</div>'+(answered?'<p class="note">'+esc(q[3])+' Новый вопрос появится завтра.</p>':'');
+  if(answered) return;
+  box.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){
+    var i=+b.dataset.i, ok=i===q[2], next=ok?streak+1:0;
+    S.store('qd.state',JSON.stringify({day:key,pick:i,last:ok?key:(st.last||''),streak:next}));
+    renderQuestion();
+  }); });
+}
+renderObject(); renderQuestion(); S.onLoc(renderObject);
+})();
+
+/* ===================== MOON CALENDAR ===================== */
+(function(){
+var A=window.Astronomy, $=function(s){ return document.querySelector(s); }, now=new Date(), Y=now.getFullYear(), M=now.getMonth();
+var NAMES=['Новолуние','Первая четверть','Полнолуние','Последняя четверть'], SHORT={'Новолуние':'Новая','Первая четверть':'1-я чет.','Полнолуние':'Полная','Последняя четверть':'3-я чет.'};
+function moon(deg){
+  var r=11, k=Math.cos(deg*Math.PI/180), wax=deg<180, rx=Math.abs(k)*r, s1=wax?1:0, s2=wax?(k>0?0:1):(k>0?1:0);
+  return '<svg viewBox="-13 -13 26 26" aria-hidden="true"><circle r="11.5" fill="#0b0f22" stroke="var(--line)"/><path fill="#f3ead0" d="M0 '+(-r)+'A'+r+' '+r+' 0 0 '+s1+' 0 '+r+'A'+rx.toFixed(2)+' '+r+' 0 0 '+s2+' 0 '+(-r)+'Z"/></svg>';
+}
+function range(list){
+  var out=[], i=0;
+  while(i<list.length){ var j=i; while(j+1<list.length&&list[j+1]===list[j]+1) j++; out.push(i===j?list[i]:list[i]+'–'+list[j]); i=j+1; }
+  return out.join(', ');
+}
+function render(){
+  var title=new Date(Y,M,1).toLocaleDateString('ru-RU',{month:'long',year:'numeric'}).replace(/\s*г\.$/,'');
+  $('#mcTitle').textContent=title.charAt(0).toUpperCase()+title.slice(1);
+  var days=new Date(Y,M+1,0).getDate(), lead=(new Date(Y,M,1).getDay()+6)%7, labels={}, dark=[], html='', t=new Date(Y,M,1);
+  ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].forEach(function(d){ html+='<div class="mc-dow" aria-hidden="true">'+d+'</div>'; });
+  for(var q=0;q<4;q++){ var f=new Date(Y,M-1,28); for(var n=0;n<3;n++){ var e=A.SearchMoonPhase(q*90,f,40); if(!e) break; var ed=e.date; if(ed.getFullYear()===Y&&ed.getMonth()===M) labels[ed.getDate()]=NAMES[q]; f=new Date(ed.getTime()+86400000); } }
+  for(var e2=0;e2<lead;e2++) html+='<div class="mc-empty" aria-hidden="true"></div>';
+  for(var d=1;d<=days;d++){
+    var at=new Date(Y,M,d,21), deg=A.MoonPhase(at), ill=Math.round(A.Illumination(A.Body.Moon,at).phase_fraction*100), isDark=ill<=15, today=now.getFullYear()===Y&&now.getMonth()===M&&now.getDate()===d;
+    if(isDark) dark.push(d);
+    html+='<div class="mc-day'+(isDark?' dark':'')+(today?' today':'')+'" title="'+ill+' %" aria-label="'+d+' число: освещено '+ill+' %'+(labels[d]?', '+labels[d]:'')+'" role="img"><b>'+d+'</b>'+moon(deg)+'<small>'+(labels[d]?SHORT[labels[d]]:ill+' %')+'</small></div>';
+  }
+  $('#mcGrid').innerHTML=html;
+  var full=Object.keys(labels).filter(function(k){ return labels[k]==='Полнолуние'; });
+  $('#mcSum').textContent=(dark.length?'Тёмные ночи: '+range(dark)+'.':'В этом месяце нет ночей с совсем тонкой Луной.')+(full.length?' Полнолуние: '+full.join(' и ')+'.':'');
+}
+$('#mcPrev').addEventListener('click',function(){ M--; if(M<0){ M=11; Y--; } render(); });
+$('#mcNext').addEventListener('click',function(){ M++; if(M>11){ M=0; Y++; } render(); });
+render();
+})();
+
+/* ===================== PLANET TEST ===================== */
+(function(){
+var S=window.Site, esc=S.esc, box=document.getElementById('ptBox'), i=0, score={};
+var RES={
+  mars:['Марс','Ты искатель приключений. Смелый, упрямый и всегда готов идти туда, где ещё никто не был. На Марсе находится самый высокий вулкан Солнечной системы — как раз для тебя.','planets/mars.jpg'],
+  venus:['Венера','Тебя невозможно не заметить. Ты яркий и притягиваешь внимание, как самая яркая планета на небе. И характер горячий: на Венере теплее, чем на Меркурии.','planets/venus.jpg'],
+  jupiter:['Юпитер','Ты лидер и большая душа. Вокруг тебя всегда собирается компания, совсем как десятки спутников вокруг Юпитера. Ты защищаешь своих и не боишься больших дел.','planets/jupiter.jpg'],
+  saturn:['Сатурн','У тебя свой стиль, и ты умеешь быть спокойным. Как и кольца Сатурна, всё в тебе продумано и красиво. Друзья ценят твоё терпение и вкус.','planets/saturn.jpg'],
+  neptune:['Нептун','Ты мечтатель и глубокий человек. Тебе нравится думать о далёком и необычном. А на Нептуне дуют самые быстрые ветры в Солнечной системе, так что внутри тебя целый ураган идей.','planets/neptune.jpg'],
+  mercury:['Меркурий','Ты самый быстрый и сообразительный. Всё успеваешь, ни на месте не сидишь, как Меркурий, который облетает Солнце всего за 88 дней.','planets/mercury.jpg']
+};
+var QS=[
+  ['Чем заняться в выходной?',[['Поехать в новое место',['mars','jupiter']],['Собрать друзей',['jupiter','venus']],['Заняться любимым делом дома',['saturn','neptune']],['Успеть всё и сразу',['mercury','mars']]]],
+  ['Какой ты в компании?',[['Заводила',['venus','jupiter']],['Тот, кто всех выслушает',['saturn','neptune']],['Придумываю план',['mercury','jupiter']],['Первый иду на риск',['mars','mercury']]]],
+  ['Что возьмёшь в космическое путешествие?',[['Телескоп',['neptune','saturn']],['Карту и фонарик',['mars','mercury']],['Гитару',['venus','neptune']],['Запас еды для всех',['jupiter','saturn']]]],
+  ['Какое время суток тебе ближе?',[['Раннее утро',['mercury','mars']],['Яркий день',['jupiter','venus']],['Закат',['venus','saturn']],['Глубокая ночь',['neptune','saturn']]]],
+  ['С чем ты справляешься лучше всего?',[['С трудными задачами',['mars','jupiter']],['С делами на скорость',['mercury','venus']],['С красивым оформлением',['saturn','venus']],['С придумыванием нового',['neptune','mercury']]]],
+  ['Какая суперсила тебе нужна?',[['Летать быстрее света',['mercury','mars']],['Читать мысли',['neptune','venus']],['Огромная сила',['jupiter','mars']],['Останавливать время',['saturn','neptune']]]]
+];
+function question(){
+  var q=QS[i];
+  box.innerHTML='<div class="q-meta"><span>Вопрос '+(i+1)+' из '+QS.length+'</span></div><div class="q-bar"><i style="width:'+(i/QS.length*100)+'%"></i></div><p class="pt-q">'+esc(q[0])+'</p><div class="opts">'+q[1].map(function(o,k){ return '<button type="button" class="opt" data-k="'+k+'">'+esc(o[0])+'</button>'; }).join('')+'</div>';
+  box.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){
+    q[1][+b.dataset.k][1].forEach(function(p,n){ score[p]=(score[p]||0)+(n?1:2); });
+    i++; if(i<QS.length) question(); else result();
+  }); });
+  var first=box.querySelector('.opt'); if(i>0&&first) first.focus();
+}
+function result(){
+  var best=Object.keys(RES).sort(function(a,b){ return (score[b]||0)-(score[a]||0); })[0], r=RES[best];
+  box.innerHTML='<div class="pt-res"><img src="sky/'+r[2]+'" alt="'+esc(r[0])+'"><div><span class="eyebrow">Твоя планета</span><h3>'+esc(r[0])+'</h3><p>'+esc(r[1])+'</p><div class="pt-act"><button type="button" class="btn primary" id="ptShare">Поделиться</button><button type="button" class="btn" id="ptAgain">Пройти ещё раз</button></div></div></div>';
+  document.getElementById('ptAgain').addEventListener('click',start);
+  document.getElementById('ptShare').addEventListener('click',function(){ S.share('planet-test','тест','Я — '+r[0]+'! А какая планета ты?'); });
+}
+function start(){ i=0; score={}; question(); }
+start();
+})();
+
+/* ===================== OBSERVING DIARY: kept only in this browser, with a file copy ===================== */
+(function(){
+var S=window.Site, $=function(s){ return document.querySelector(s); }, esc=S.esc;
+var GROUPS=[
+  ['Луна и планеты',true,[['moon','Луна'],['mercury','Меркурий'],['venus','Венера'],['mars','Марс'],['jupiter','Юпитер'],['saturn','Сатурн'],['uranus','Уран'],['neptune','Нептун']]],
+  ['Яркие звёзды',true,[['sirius','Сириус'],['vega','Вега'],['polaris','Полярная'],['betelgeuse','Бетельгейзе'],['capella','Капелла'],['arcturus','Арктур'],['aldebaran','Альдебаран'],['rigel','Ригель']]],
+  ['Созвездия',true,[['uma','Большая Медведица'],['ori','Орион'],['cas','Кассиопея'],['cyg','Лебедь'],['lyr','Лира'],['tau','Телец'],['leo','Лев'],['sco','Скорпион']]],
+  ['Глубокий космос',true,[['m45','Плеяды','M45'],['m31','Туманность Андромеды','M31'],['m42','Туманность Ориона','M42'],['m44','Ясли','M44'],['m13','Шаровое скопление в Геркулесе','M13'],['m57','Туманность Кольцо','M57'],['m81','Галактика Боде','M81'],['m51','Галактика Водоворот','M51']]],
+  ['Небесные явления',false,[['iss','МКС'],['satellite','Искусственный спутник'],['meteor','Метеор'],['lunar','Лунное затмение'],['solar','Солнечное затмение'],['aurora','Полярное сияние'],['comet','Комета'],['halo','Гало вокруг Солнца или Луны']]]
+];
+var ALL=[]; GROUPS.forEach(function(g,i){ g[2].forEach(function(it){ ALL.push({id:it[0],name:it[1],show:it[2]||it[1],g:i}); }); });
+function count(seen,g){ return ALL.filter(function(it){ return seen[it.id]&&(g==null||it.g===g); }).length; }
+var ACH=[
+  ['Первый взгляд','Отметьте первый объект',function(s){ return count(s)>=1; }],
+  ['Лунный наблюдатель','Увидьте Луну',function(s){ return !!s.moon; }],
+  ['Планетный охотник','Найдите 5 планет',function(s){ return ['mercury','venus','mars','jupiter','saturn','uranus','neptune'].filter(function(k){ return s[k]; }).length>=5; }],
+  ['Вся Солнечная система','Отметьте Луну и все планеты',function(s){ return count(s,0)===8; }],
+  ['Читатель неба','Найдите 5 созвездий',function(s){ return count(s,2)>=5; }],
+  ['Дальше галактики','Увидьте Туманность Андромеды',function(s){ return !!s.m31; }],
+  ['Охотник за явлениями','Отметьте 3 небесных явления',function(s){ return count(s,4)>=3; }],
+  ['Опытный наблюдатель','Отметьте 25 объектов',function(s){ return count(s)>=25; }]
+];
+var seen=clean(S.loadJSON('diary.seen',{})), notes=cleanNotes(S.loadJSON('diary.notes',[]));
+function clean(v){ var o={}; if(v&&typeof v==='object') ALL.forEach(function(it){ if(v[it.id]&&typeof v[it.id].d==='string') o[it.id]={d:v[it.id].d.slice(0,10),p:String(v[it.id].p||'').slice(0,80)}; }); return o; }
+function cleanNotes(v){
+  if(!Array.isArray(v)) return [];
+  return v.filter(function(n){ return n&&typeof n.o==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(n.d); }).map(function(n){ return {id:String(n.id||Math.random()).slice(0,24),d:n.d,o:n.o.slice(0,60),t:String(n.t||'').slice(0,20),n:String(n.n||'').slice(0,500)}; });
+}
+function save(){ S.store('diary.seen',JSON.stringify(seen)); S.store('diary.notes',JSON.stringify(notes)); }
+function pad(x){ return (x<10?'0':'')+x; }
+function today(){ var d=new Date(); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function ruDate(s){ var p=s.split('-'); return new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).replace(/\s*г\.$/,''); }
+function renderProgress(){
+  var n=count(seen); $('#dyCount').innerHTML=n+' <small>из '+ALL.length+'</small>'; $('#dyBar').style.width=(n/ALL.length*100)+'%';
+  $('#dyAch').innerHTML=ACH.map(function(a){ var on=a[2](seen); return '<li class="'+(on?'on':'')+'"><span aria-hidden="true">'+(on?'★':'☆')+'</span><span><b>'+esc(a[0])+'</b>'+esc(a[1])+'<span class="sr">'+(on?', получено':', ещё не получено')+'</span></span></li>'; }).join('');
+}
+function renderGroups(){
+  $('#dyGroups').innerHTML=GROUPS.map(function(g,i){
+    return '<fieldset class="dy-group"><legend>'+esc(g[0])+'<span>'+count(seen,i)+'/'+g[2].length+'</span></legend>'+ALL.filter(function(it){ return it.g===i; }).map(function(it){
+      var s=seen[it.id];
+      return '<div class="dy-item"><label><input type="checkbox" data-id="'+it.id+'"'+(s?' checked':'')+'><span>'+esc(it.name)+(s?'<small>'+esc(ruDate(s.d))+(s.p?', '+esc(s.p):'')+'</small>':'')+'</span></label>'+(g[1]?'<button type="button" class="linkbtn" data-show="'+esc(it.show)+'">На небе</button>':'')+'</div>';
+    }).join('')+'</fieldset>';
+  }).join('');
+}
+function renderNotes(){
+  $('#dyNotes').innerHTML=notes.slice().sort(function(a,b){ return a.d<b.d?1:a.d>b.d?-1:0; }).map(function(n){
+    return '<li><div class="h"><b>'+esc(n.o)+'</b><button type="button" class="linkbtn" data-del="'+esc(n.id)+'">Удалить</button></div><small>'+esc(ruDate(n.d))+(n.t?' · '+esc(n.t):'')+'</small>'+(n.n?'<p>'+esc(n.n)+'</p>':'')+'</li>';
+  }).join('');
+}
+function all(){ renderProgress(); renderGroups(); renderNotes(); }
+function mark(it,date){
+  var before=ACH.filter(function(a){ return a[2](seen); }).length;
+  seen[it.id]={d:date,p:S.locLabel()}; save();
+  var got=ACH.filter(function(a){ return a[2](seen); });
+  if(got.length>before) S.toast('Новое достижение: '+got[got.length-1][0]);
+}
+$('#dyGroups').addEventListener('change',function(e){
+  var id=e.target.dataset.id; if(!id) return;
+  var it=ALL.filter(function(x){ return x.id===id; })[0];
+  if(e.target.checked) mark(it,today()); else { delete seen[id]; save(); }
+  renderProgress(); renderGroups();
+  var again=$('#dyGroups input[data-id="'+id+'"]'); if(again) again.focus();
+});
+$('#dyGroups').addEventListener('click',function(e){
+  var b=e.target.closest('[data-show]'); if(!b) return;
+  if(window.PL&&window.PL.show){ window.PL.show({name:b.dataset.show}); S.goTo('planetarium'); }
+});
+$('#dyNotes').addEventListener('click',function(e){
+  var b=e.target.closest('[data-del]'); if(!b||!window.confirm('Удалить эту запись?')) return;
+  notes=notes.filter(function(n){ return n.id!==b.dataset.del; }); save(); renderNotes();
+});
+$('#dyForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var o=$('#dyObj').value.trim(), d=$('#dyDate').value; if(!o||!d) return;
+  notes.push({id:Date.now().toString(36)+Math.floor(Math.random()*1e4),d:d,o:o,t:$('#dyTool').value,n:$('#dyText').value.trim()});
+  var it=ALL.filter(function(x){ return x.name.toLowerCase()===o.toLowerCase(); })[0];
+  if(it&&!seen[it.id]) mark(it,d);
+  save(); all();
+  $('#dyObj').value=''; $('#dyText').value=''; S.toast('Запись сохранена');
+});
+$('#dySave').addEventListener('click',function(){
+  var b=new Blob([JSON.stringify({app:'kosmos-diary',v:1,seen:seen,notes:notes},null,1)],{type:'application/json'}), a=document.createElement('a');
+  a.href=URL.createObjectURL(b); a.download='dnevnik-nablyudeniy-'+today()+'.json'; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); },5000);
+});
+$('#dyLoad').addEventListener('click',function(){ $('#dyFile').click(); });
+$('#dyFile').addEventListener('change',function(){
+  var f=this.files[0]; this.value=''; if(!f) return;
+  if(f.size>1048576){ S.toast('Файл слишком большой'); return; }
+  f.text().then(function(t){
+    var j=JSON.parse(t); if(!j||j.app!=='kosmos-diary') throw new Error('format');
+    if(!window.confirm('Заменить текущий дневник данными из файла?')) return;
+    seen=clean(j.seen); notes=cleanNotes(j.notes); save(); all(); S.toast('Дневник загружен');
+  }).catch(function(){ S.toast('Это не файл дневника'); });
+});
+$('#dyDate').value=today(); $('#dyDate').max=today();
+$('#dyList').innerHTML=ALL.map(function(it){ return '<option value="'+esc(it.name)+'">'; }).join('');
+all();
+})();
+
+/* ---------- countdown to the New Year on the first screen; hides itself after the holidays ---------- */
+(function(){
+var box=document.getElementById('nyCount'), now=new Date(), mo=now.getMonth(), year=mo>=6?now.getFullYear()+1:now.getFullYear(), target=new Date(year,0,1);
+if(mo>0&&mo<6||(mo===0&&now.getDate()>14)) return;
+function plural(n,a,b,c){ var m=n%100, k=n%10; return (m>10&&m<20)?c:k===1?a:(k>1&&k<5)?b:c; }
+function p(x){ return (x<10?'0':'')+x; }
+function tick(){
+  var ms=target-Date.now();
+  if(ms<=0){ box.innerHTML='<b>С Новым годом!</b>'; return; }
+  var s=Math.floor(ms/1000), d=Math.floor(s/86400);
+  box.innerHTML='<span>До Нового года</span><b>'+(d?d+' '+plural(d,'день','дня','дней')+' ':'')+p(Math.floor(s/3600)%24)+':'+p(Math.floor(s/60)%60)+':'+p(s%60)+'</b>';
+}
+tick(); box.hidden=false; setInterval(tick,1000);
 })();
 
 window.Site.ready();

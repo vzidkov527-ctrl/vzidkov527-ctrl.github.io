@@ -1,7 +1,7 @@
 /* Offline support: the page and the sky data are cached so the planetarium and calendar work in the field without a network.
    Page: network first, so a new version arrives as soon as there is a connection. Everything else: served from cache, refreshed in the background.
    Bump VERSION when files are renamed or removed. */
-var VERSION = 'kosmos-v1';
+var VERSION = 'kosmos-v2';
 var CORE = [
   './',
   'index.html',
@@ -13,7 +13,8 @@ var CORE = [
   'sky/starcons.txt',
   'sky/milkyway.jpg'
 ];
-var FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
+/* fonts and the orbit library; forecasts (Open-Meteo, CelesTrak, NOAA) are not cached here, the page keeps them itself */
+var FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com', 'cdnjs.cloudflare.com'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(VERSION).then(function (c) { return c.addAll(CORE); }).then(function () { return self.skipWaiting(); }));
